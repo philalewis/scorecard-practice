@@ -1,3 +1,6 @@
+import React, { Component } from 'react'
+import Form from './Form'
+import Hole from './Hole'
 import './App.css';
 
 class App extends Component {
@@ -10,7 +13,11 @@ class App extends Component {
 
   render() {
     return (
-      <h1>Scorecard</h1>
+      <main>
+        <h1>Disc Golf Scorecard</h1>
+        <Form />
+        <Hole />
+      </main>
     )
   }
 }
