@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import Form from './Form'
+import Hole from './Hole'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      players: []
+    }
+  }
+
+  addPlayer = name => {
+    this.setState({players: [...this.state.players, name]})
+  }
+
+  getCurrentPlayers = () => {
+    return (
+      this.state.players.map(player => {
+        return (
+          <>
+            <h2>{player}</h2><br/>
+          </>
+        )
+      })
+    )
+  }
+
+  render() {
+    return (
+      <main>
+        <h1>Disc Golf Scorecard</h1>
+        <Form addPlayer={this.addPlayer}/>
+        <section>
+          { this.getCurrentPlayers() }
+        </section>
+        {/* <Hole /> */}
+      </main>
+    )
+  }
 }
 
 export default App;
