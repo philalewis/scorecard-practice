@@ -7,15 +7,19 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      score: 0
+      players: []
     }
+  }
+
+  addPlayer = name => {
+    this.setState({players: [...this.state.players, name]})
   }
 
   render() {
     return (
       <main>
         <h1>Disc Golf Scorecard</h1>
-        <Form />
+        <Form addPlayer={this.addPlayer}/>
         <Hole />
       </main>
     )

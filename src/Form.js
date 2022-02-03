@@ -1,21 +1,21 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-class Form extends React.Component {
+class Form extends Component {
   constructor() {
     super()
     this.state = {
-      name: '',
-      players: []
+      name: ''
     }
   }
 
   handleChange = event => {
-    this.setState({ name: this.event.target.value })
+    this.setState({ name: event.target.value })
   }
 
   addPlayer = event => {
     event.preventDefault()
-    this.setState({ players: [...this.state.player, event.target.value] })
+    this.props.addPlayer(event.target.value)
+    this.setState({ name: '' })
   }
 
   render() {
