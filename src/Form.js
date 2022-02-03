@@ -14,7 +14,7 @@ class Form extends Component {
 
   addPlayer = event => {
     event.preventDefault()
-    this.props.addPlayer(event.target.value)
+    this.props.addPlayer(this.state.name)
     this.setState({ name: '' })
   }
 

@@ -15,12 +15,27 @@ class App extends Component {
     this.setState({players: [...this.state.players, name]})
   }
 
+  getCurrentPlayers = () => {
+    return (
+      this.state.players.map(player => {
+        return (
+          <>
+            <h2>{player}</h2><br/>
+          </>
+        )
+      })
+    )
+  }
+
   render() {
     return (
       <main>
         <h1>Disc Golf Scorecard</h1>
         <Form addPlayer={this.addPlayer}/>
-        <Hole />
+        <section>
+          { this.getCurrentPlayers() }
+        </section>
+        {/* <Hole /> */}
       </main>
     )
   }
